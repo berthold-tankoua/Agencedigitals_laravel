@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: HomeController
+  version: 1.0.0
+paths:
+  /api/home:
+    get:
+      tags:
+        - Home
+      summary: "Récupère les données de la page d'accueil"
+      operationId: d65ef76cbb32ae304c5a24c525b95adb
+      responses:
+        200:
+          description: Succès
+          content:
+            application/json:
+              schema:
+                properties:
+                  agents:
+                    type: array
+                    items:
+                      type: object
+                  properties:
+                    type: array
+                    items:
+                      type: object
+                  services:
+                    type: array
+                    items:
+                      type: object
+                  slider:
+                    type: object
+                  choose_us:
+                    type: object
+                type: object
+tags:
+  -
+    name: Home
+    description: Home

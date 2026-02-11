@@ -1,0 +1,41 @@
+{
+    "name": "AgenceDigitals",
+    "short_name": "AgenceDigitals",
+    "start_url": "/index.php",
+    "background_color": "#ffffff",
+    "description": "AgenceDigitals, votre partenaire digital freelance. Je vous accompagne dans la création et la modernisation de sites web, l’automatisation avec agents IA, le marketing digital et la vente de formations en ligne.",
+    "display": "fullscreen",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/icons/384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
+}

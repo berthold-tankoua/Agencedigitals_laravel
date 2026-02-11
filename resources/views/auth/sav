@@ -1,0 +1,44 @@
+@extends('frontend.main_master')
+
+@section('content')
+
+@section('title')
+AgenceDigitals | Inscription
+@endsection
+@php
+$about = App\Models\About::findOrFail(1);
+@endphp
+    <main id="main">
+            <!-- start main container -->
+            <main class="bg-light bg_parallax" style="background-image: url({{ asset('frontend/assets/img/1920x1000.webp')}})">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class='py-5 px-3 px-md-5 my-3 col-lg-10 col-xl-8 shadow bg-white'>
+                            <div class="text-center">
+                                <h2 class="font-weight-bold h2">INSCRIPTION</h2><hr>
+                                <p class="tagline text-body mb-3" style="font-size: 17px;">Bienvenue sur la page d'inscription. veuiller sélectionner la finalité du compte</b> </p>
+                            </div>
+                            <div class="row justify-content-center align-items-center text-center">
+                                <div class="col-md-6 mb-4">
+                                    <p>1 | Je suis un utilisateur/client</p>
+                                    <a href="{{url('/user/register/user')}}" class="btn btn-primary mt-2" style="font-size: 20px !important;">S'inscrire</a>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <p>2 | Je suis propriétaire immobilier</p>
+                                    <a href="{{url('/user/register/agent')}}" class="btn btn-primary mt-2" style="font-size: 20px !important;">Créer un Compte</a>
+                                </div>
+                            </div>
+                            <P>Pour tout problème ou préoccupation, contactez-nous à l'une des adresses ci dessous:</P>
+                            <div class='contact' style='margin-top: 18px;'>
+                                <p><i class="far fa-envelope mr-1 mb-3"></i> Email : <a target="_blank" rel="noopener noreferrer" href="mailto:AgenceDigitals@gmail.com">AgenceDigitals@gmail.com</a></p>
+                                <p><i class="fab fa-whatsapp mr-1 mb-3"></i> Contact : <a href="https://wa.me/+237681576329/?text=j aimerai en savoir plus sur AgenceDigitals">+237 696796045 | 681576329</a></p>
+                                <p><i class="fas fa-street-view mr-1 mb-3"></i> Addresse : <span>Cameroun, Douala, Bonamoussadi IPPB</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </main>
+
+    </main>
+@endsection
+
