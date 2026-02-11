@@ -198,7 +198,7 @@
                   method: "POST",
                   headers: {
                       "Content-Type": "application/json",
-                      "Authorization": "Bearer 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" // ⚠️ sécurise-la en prod !
+                      "Authorization": "Bearer " + env('OPENAI_API_KEY') // ⚠️ sécurise-la en prod !
                   },
                   body: JSON.stringify({
                       model: "gpt-4o-mini",
