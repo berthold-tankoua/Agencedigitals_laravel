@@ -1,5 +1,3 @@
-Ok 👍 voici une version corrigée en précisant que c’est un site vitrine simple développé avec Laravel Blade (pas plateforme freelance, pas formations, plus cohérent) :
-
 🚀 AgenceDigitals
 
 Site vitrine développé avec Laravel Blade
