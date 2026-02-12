@@ -32,9 +32,13 @@
 
 <section>
     <div class="container">
-        <div class="text-black">
-            {!! $service->short_descp_fr !!}
+        <div class="row">
+            <div class="col-md-8">
+                <div class="text-black">
+                    {!! $service->short_descp_fr !!}
 
+                </div>
+            </div>
         </div>
     </div>
 </section>

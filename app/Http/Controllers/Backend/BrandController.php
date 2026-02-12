@@ -13,83 +13,85 @@ use Image;
 class BrandController extends Controller
 {
 
-    public function AboutView(){
+    public function AboutView()
+    {
         $abouts = About::latest()->get();
-        return view('backend.about.about_view',compact('abouts'));
+        return view('backend.about.about_view', compact('abouts'));
     } //End Method
 
     /*===========================================
     ADD ABOUT
     ===========================================*/
 
-    public function AboutStore(Request $request){
+    public function AboutStore(Request $request)
+    {
         $request->validate([
-        'phone'=>'required',
-        'country'=>'required',
-        'email'=>'required',
-        'desc1'=>'required',
+            'phone' => 'required',
+            'country' => 'required',
+            'email' => 'required',
+            'desc1' => 'required',
 
-        ],[
-            'phone'=>'saisir le numero telephone',
-            'country'=>'saisir Votre pays et ville',
-            'email'=>'saisir l email de l entreprise',
-            'desc1'=>'saisir la description de l entreprise',
+        ], [
+            'phone' => 'saisir le numero telephone',
+            'country' => 'saisir Votre pays et ville',
+            'email' => 'saisir l email de l entreprise',
+            'desc1' => 'saisir la description de l entreprise',
         ]);
 
-           $about_img = $request->file('about_img');
-            $name_gen = hexdec(uniqid()).'.'.$about_img->getClientOriginalExtension();
-            Image::make($about_img)->fit(600,600)->save('upload/abouts/'.$name_gen);
-            $save_url = 'upload/abouts/'.$name_gen;
+        $about_img = $request->file('about_img');
+        $name_gen = hexdec(uniqid()) . '.' . $about_img->getClientOriginalExtension();
+        Image::make($about_img)->save('upload/abouts/' . $name_gen);
+        $save_url = 'upload/abouts/' . $name_gen;
 
-            About::insert([
-                'country'=>$request->country,
-                'phone'=>$request->phone,
-                'email'=>$request->email,
-                'desc1'=>$request->desc1,
-                'desc2'=>$request->desc2,
-                'desc3'=>$request->desc3,
-                'desc4'=>$request->desc4,
-                'desc5'=>$request->desc5,
-                'facebook_link'=>$request->flink,
-                'instagram_link'=>$request->ilink,
-                'twitter_link'=>$request->tlink,
-                'about_img'=>$save_url,
-            ]);
+        About::insert([
+            'country' => $request->country,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'desc1' => $request->desc1,
+            'desc2' => $request->desc2,
+            'desc3' => $request->desc3,
+            'desc4' => $request->desc4,
+            'desc5' => $request->desc5,
+            'facebook_link' => $request->flink,
+            'instagram_link' => $request->ilink,
+            'twitter_link' => $request->tlink,
+            'about_img' => $save_url,
+        ]);
 
-            $notification = array(
-                'message' =>'A propos inserer avec succes',
-                'alert-type'=>'success'
-            );
+        $notification = array(
+            'message' => 'A propos inserer avec succes',
+            'alert-type' => 'success'
+        );
 
         return redirect()->back()->with($notification);
-
     } //End Method
 
     /*===========================================
     EDIT ABOUT
     ===========================================*/
 
-    public function AboutEdit($id){
+    public function AboutEdit($id)
+    {
         Cache::forget('about_info');
         $about = About::findOrFail($id);
-        return view('backend.about.about_edit',compact('about'));
+        return view('backend.about.about_edit', compact('about'));
     } //End Method
 
-    public function AboutUpdate(Request $request){
+    public function AboutUpdate(Request $request)
+    {
 
-         $about = About::findOrFail($request->id);
+        $about = About::findOrFail($request->id);
 
         // Prépare les données communes
         $data = [
             'localisation'   => $request->localisation,
             'phone'          => $request->phone,
             'email'          => $request->email,
-            'about_desc'     => $request->about_desc,
-            'vision_desc'    => $request->vision_desc,
-            'mission_desc'   => $request->mission_desc,
-            'term_condition' => $request->term_condition,
-            'legal_mention'  => $request->legal_mention,
-            'advantage'      => $request->advantage,
+            'desc1'     => $request->about_desc,
+            'desc2'    => $request->vision_desc,
+            'desc3'    => $request->mission_desc,
+            'desc4'    => $request->term_condition,
+            'desc5'    => $request->legal_mention,
             'facebook_link'  => $request->flink,
             'instagram_link' => $request->ilink,
             'twitter_link'   => $request->tlink,
@@ -116,26 +118,28 @@ class BrandController extends Controller
         Cache::forget('about_info'); // vide le cache
 
         $notification = array(
-            'message' =>'Mise à jour effectuer avec succes',
-            'alert-type'=>'info'
+            'message' => 'Mise à jour effectuer avec succes',
+            'alert-type' => 'info'
         );
 
         return redirect()->back()->with($notification);
-
     } //End Method
 
 
-    public function ChooseUsView(){
+    public function ChooseUsView()
+    {
         $item = WhyChooseUs::first();
-        return view('backend.chooseus.chooseus_view',compact('item'));
+        return view('backend.chooseus.chooseus_view', compact('item'));
     } //End Method
 
-    public function ChooseUsEdit($id){
+    public function ChooseUsEdit($id)
+    {
         $item = WhyChooseUs::findOrFail($id);
-        return view('backend.chooseus.chooseus_edit',compact('item'));
+        return view('backend.chooseus.chooseus_edit', compact('item'));
     } //End Method
 
-    public function ChooseUsUpdate(Request $request){
+    public function ChooseUsUpdate(Request $request)
+    {
         $id = $request->id;
         $whyChooseUs = WhyChooseUs::findOrFail($id);
 
@@ -168,12 +172,11 @@ class BrandController extends Controller
         $whyChooseUs->update($data);
 
         $notification = array(
-            'message' =>'Mise à jour effectuer avec succes',
-            'alert-type'=>'info'
+            'message' => 'Mise à jour effectuer avec succes',
+            'alert-type' => 'info'
         );
 
         return redirect()->back()->with($notification);
-
     } //End Method
 
 }
