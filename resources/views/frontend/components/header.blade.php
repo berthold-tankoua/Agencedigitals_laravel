@@ -125,7 +125,7 @@
 
                                     </ul>
                                 </li>
-                                <li><a class="menu-item" href="case-studies.html">Nos projets</a></li>
+                                <li><a class="menu-item" href="#">Nos projets</a></li>
                                 <li><a class="menu-item" href="{{ url('/formation/list') }}">Nos formations</a>
                                     @php
                                         $categories = App\Models\Category::orderBy('category_name_fr', 'ASC')->get();
